@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, FormControl, Button, Typography, Box } from "@mui/material";
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Regist = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [valid, setValid] = useState(true);
@@ -14,41 +14,47 @@ const Regist = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 350, margin: "auto", padding: 3, display: "grid", gap: 2 , justifyContent:"center" }}>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ maxWidth: 357, margin: "auto", padding: 3, display: "grid", gap: 2 , justifyContent:"center" }}>
+      
+      <Typography>
+        <ArrowBackIcon/>
+      </Typography>
+      <Box sx={{ width:350 , height:80 ,display:'grid', gap:0.5  }}>
+      
+      <Typography sx={{fontSize:22 , fontWeight:600}} variant="h4" gutterBottom>
         Become An Affiliate
       </Typography>
-      <Typography variant="body1" sx={{  marginBottom: 2, fontWeight: 400, fontSize: 14 }}>
+      <Typography variant="body1" sx={{  marginBottom: 2, fontWeight: 400, fontSize: 12 ,color:"rgba(154, 154, 154, 1)" }}>
         Please provide us with your basic details and begin enjoying your privileges.
       </Typography>
-       
-       <Box sx={{display: "grid" , gap:1 , height:378}}>
+      </Box>
+       <Box sx={{display: "grid" , gap:1 , height:378 , width:359 , justifyContent:"center" , alignItems:"center"}}>
       <FormControl fullWidth>
-        <Typography sx={{ fontSize: 14, fontWeight: 500, fontFamily: "DM Sans", color: "#2E2E2E", }}>
+        <Typography sx={{ fontSize: 14, fontWeight: 500, color: "#2E2E2E"}}>
           Username
         </Typography>
-        <TextField sx={{width:357 , height:46}} placeholder="Enter your username" type="text" fullWidth variant="outlined" />
+        <TextField sx={{width:350 , height:46}} placeholder="Enter your username" type="text" fullWidth variant="outlined" />
       </FormControl>
 
       <FormControl fullWidth>
-        <Typography sx={{ fontSize: 14, fontWeight: 500, fontFamily: "DM Sans", color: "#2E2E2E" }}>
+        <Typography sx={{ fontSize: 14, fontWeight: 500,  color: "#2E2E2E",  }}>
           Email
         </Typography>
-        <TextField sx={{width:357 , height:46}} placeholder="Enter your email" type="email" fullWidth variant="outlined" />
+        <TextField sx={{width:350 , height:46, borderColor:"rgba(234, 234, 234, 1)"}} placeholder="Enter your email" type="email" fullWidth variant="outlined" />
       </FormControl>
 
       <FormControl fullWidth>
-        <Typography sx={{ fontSize: 14, fontWeight: 500, fontFamily: "DM Sans", color: "#2E2E2E" }}>
+        <Typography sx={{ fontSize: 14, fontWeight: 500, color: "#2E2E2E" }}>
           Password
         </Typography>
-        <TextField sx={{width:357 , height:46}} placeholder="Enter your password" type="password" fullWidth variant="outlined" />
+        <TextField sx={{width:350 , height:46}} placeholder="Enter your password" type="password" fullWidth variant="outlined" />
       </FormControl>
 
       <FormControl fullWidth>
-        <Typography sx={{ fontSize: 14, fontWeight: 500, fontFamily: "DM Sans", color: "#2E2E2E" }}>
+        <Typography sx={{ fontSize: 14, fontWeight: 500, color: "#2E2E2E",  }}>
           Phone Number
         </Typography>
-        <TextField sx={{width:357 , height:46}}
+        <TextField sx={{width:350 , height:46, }}
           placeholder="Enter your phone number"
           type="tel"
           value={phoneNumber}
@@ -65,9 +71,17 @@ const Regist = () => {
         )}
       </FormControl>
       </Box>
-      <Button sx={{width:357 , height:46}} variant="contained" fullWidth disabled={!valid}>
+      <Box sx={{display: "grid", justifyContent:"center" , alignItems:"center"}}>
+      <Typography variant="body1" sx={{  marginBottom: 2, fontWeight: 400, fontSize: 14 ,color:"rgba(154, 154, 154, 1)" }}>
+        Please provide us with your basic 
+      </Typography>
+      <Button sx={{width:350 , height:46}} variant="contained" fullWidth disabled={!valid}>
         Sign Up
       </Button>
+      <Typography variant="body1" sx={{  marginTop: 2, fontWeight: 400, fontSize: 14 ,color:"rgba(154, 154, 154, 1)" }}>
+        Please provide us 
+      </Typography>
+      </Box>
     </Box>
   );
 };
