@@ -1,46 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, FormControl, TextField, Typography, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const CreateNewPassword = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
   });
 
   const [errors, setErrors] = useState({
-    password: false,
-    confirmPassword: false,
+    password: "",
+    confirmPassword: "",
   });
 
   const validatePassword = (password) => password.length >= 6;
 
+  useEffect(() => {
+    if (formData.confirmPassword)
+      setErrors((prev) => ({
+        ...prev,
+        confirmPassword:
+          formData.confirmPassword !== formData.password ? "Passwords do not match" : "",
+      }));
+  }, [formData.password, formData.confirmPassword]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (name === "password") {
       setErrors((prev) => ({
         ...prev,
-        password: !validatePassword(value),
+        password: validatePassword(value) ? "" : "Password must be at least 6 characters",
       }));
     }
 
     if (name === "confirmPassword") {
       setErrors((prev) => ({
         ...prev,
-        confirmPassword: value !== formData.password,
+        confirmPassword: value !== formData.password ? "Passwords do not match" : "",
       }));
     }
   };
 
   const handleSubmit = () => {
     if (!errors.password && !errors.confirmPassword && formData.password) {
-      console.log("Password successfully updated!");
-      // Implement actual password update logic here
+      navigate("/ResetSuccessful");
     }
   };
 
@@ -64,8 +71,9 @@ const CreateNewPassword = () => {
           variant="outlined"
           value={formData.password}
           onChange={handleChange}
-          error={errors.password}
-          helperText={errors.password && "Password must be at least 6 characters"}
+          error={!!errors.password}
+          helperText={errors.password}
+          aria-label="New Password"
         />
       </FormControl>
 
@@ -80,21 +88,23 @@ const CreateNewPassword = () => {
           variant="outlined"
           value={formData.confirmPassword}
           onChange={handleChange}
-          error={errors.confirmPassword}
-          helperText={errors.confirmPassword && "Passwords do not match"}
+          error={!!errors.confirmPassword}
+          helperText={errors.confirmPassword}
+          aria-label="Confirm Password"
         />
       </FormControl>
 
       {/* Submit Button */}
       <Button
-        variant="contained"
-        fullWidth
-        sx={{ marginTop: 2 }}
-        onClick={handleSubmit}
-        disabled={errors.password || errors.confirmPassword || !formData.password}
-      >
-        Reset Password
-      </Button>
+  variant="contained"
+  fullWidth
+  sx={{ marginTop: 2 }}
+  onClick={handleSubmit} 
+  disabled={!!errors.password || !!errors.confirmPassword || !formData.password}
+>
+  Reset Password
+</Button>
+
     </Box>
   );
 };

@@ -13,7 +13,7 @@ const CheckMail = () => {
       <Typography variant="body2" color="textSecondary" sx={{ marginBottom: 2 }}>
       We have sent you a reset password link to yor registered email address      </Typography>
 
-      <Button variant="contained" fullWidth sx={{ marginTop: 2 }} component={Link} to="/login">
+      <Button variant="contained" fullWidth sx={{ marginTop: 2 }} component={Link} to="/CreateNewPassword">
       Check email app      </Button>
     </Box>
   );
