@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { TextField, FormControl, Button, Typography, Box, Checkbox, FormControlLabel, IconButton } from "@mui/material";
+import { TextField, FormControl, Button, Typography, Box, Checkbox, FormControlLabel, IconButton , Link } from "@mui/material";
+
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css"; // Import default styles
-import {Link } from 'react-router-dom';
+import "react-phone-input-2/lib/style.css"; 
+import { useNavigate } from "react-router-dom";
 
 const Regist = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -130,7 +133,7 @@ const Regist = () => {
 
       {/* Footer Text */}
       <Typography variant="body2" sx={{ textAlign: "center", color: "rgba(154, 154, 154, 1)", marginTop: 2 }}>
-        Already have an account? <Link to="/Login" variant="text" size="small">Sign In</Link>
+        Already have an account? <Link onClick={() => navigate("/Login")} sx={{ color: "#007BFF", cursor: "pointer" }}>Sign In</Link>
       </Typography>
     </Box>
   );

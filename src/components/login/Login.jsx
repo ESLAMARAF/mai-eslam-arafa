@@ -64,7 +64,7 @@ const Login = () => {
 
       {/* Forgot Password */}
       <Typography sx={{ textAlign: "right", marginTop: 1 }}>
-        <Link href="#" underline="none" sx={{ fontSize: 12, color: "#007BFF", cursor: "pointer" }}>
+      <Link onClick={() => navigate("/ResetPassword")}  sx={{ color: "#007BFF", cursor: "pointer" }}>
           Forgot Password?
         </Link>
       </Typography>
