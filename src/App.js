@@ -1,8 +1,7 @@
 import Login from './components/login/Login';
 import Regist from './components/register/regist';
-import {BrowserRouter , Routes,Route , Navigate} from "react-router-dom";
+import {BrowserRouter , Routes,Route } from "react-router-dom";
 import Home from './pages/home/Home';
-import OtpVerificaton from './components/otpVerificaton/OtpVerificaton';
 import ResetPassword from './components/resitPassword/ResetPassword';
 import CreateNewPassword from './components/createNewPass/Create New Password';
 
