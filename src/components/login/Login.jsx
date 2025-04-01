@@ -5,11 +5,9 @@ const Login = () => {
   return (
     <Box sx={{ maxWidth: 350, margin: "auto", padding: 3, textAlign: "center" }}>
       <Typography variant="h4" gutterBottom>
-        Become An Affiliate
-      </Typography>
+      Sign In      </Typography>
       <Typography variant="body1" sx={{ marginBottom: 2 }}>
-        Please provide us with your basic details and begin enjoying your privileges.
-      </Typography>
+      Hey User, Welcome Back We’ve Missed You!!      </Typography>
 
       <Box sx={{ display: "grid", gap: 2 }}>
         <FormControl fullWidth>
